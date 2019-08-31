@@ -240,9 +240,11 @@ class bw (Exchange):
         result = {'info': response}
         for i in range(0, len(balances)):
             balance = balances[i]
-            symbol = self.safe_integer(balance, 'currencyTypeId')
+            symbol = self.safe_integer(balance, 'currencyTypeId', '')
+            symbol = str(symbol)
             if symbol in self.currencies_by_id:
                 symbol = self.currencies_by_id[symbol]['code']
+                symbol = self.safe_currency_code(symbol)
             account = self.account()
             amount = self.safe_float(balance, 'amount')
             account['free'] = amount
