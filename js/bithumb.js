@@ -128,7 +128,7 @@ module.exports = class bithumb extends Exchange {
                 'active': active,
                 'precision': {
                     'amount': 4,
-                    'price': 4,
+                    'price': pricePrecision,
                 },
                 'limits': {
                     'amount': {
