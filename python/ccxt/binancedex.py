@@ -423,8 +423,8 @@ class binancedex (Exchange):
                 body = self.json(params)
         return {'url': url, 'method': method, 'body': body, 'headers': headers}
 
-    def handle_errors(self, httpCode, reason, url, method, headers, body, response):
-        if not response or httpCode == 200:
+    def handle_errors(self, code, reason, url, method, headers, body, response, requestHeaders, requestBody):
+        if not response or code == 200:
             return  # fallback to default error handler
         error = self.safe_value(response, 'message')
         if error:
