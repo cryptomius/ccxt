@@ -91,11 +91,30 @@ module.exports = class bithumbglobal extends Exchange {
             'exceptions': {
                 'exact': {
                     // 9002 occurs when there are missing/wrong parameters, the signature does not need to be wrong
+                    '9000' : AuthenticationError,
+                    '9001' : BadRequest,
                     '9002': BadRequest, // {"data":null,"code":"9002","msg":"verifySignature failed","timestamp":1597061538013,"startTime":null}
+                    '9004' : BadRequest,
+                    '9005' : AuthenticationError,
+                    '9006' : ExchangeError,
+                    '9007' : BadRequest,
+                    '9008' : BadRequest,
+                    '9999' : ExchangeError,
+                    '9010' : PermissionDenied,
+                    '9011' : PermissionDenied,
+                    '9012' : PermissionDenied,
+                    '20002' : PermissionDenied,
                     '20000': InvalidOrder, // {"data":null,"code":"20000","msg":"order params error","timestamp":1597064915274,"startTime":null}
+                    '20003' : InvalidOrder,
                     '20004': OrderNotFound, // {"data":null,"code":"20004","msg":"order absent","timestamp":1597061829420,"startTime":null}
+                    '20010' : InvalidOrder,
                     '20012': BadRequest, // {"data":null,"code":"20012","msg":"cancel failed,order status changed","timestamp":1597065978595,"startTime":null}
+                    '20043' : InvalidOrder,
                     '20044': InvalidOrder, // {"data":null,"code":"20044","msg":"quantity accuracy is wrong for placing order","timestamp":1597066179132,"startTime":null}
+                    '20048' : InvalidOrder,
+                    '20053' : PermissionDenied,
+                    '20054' : InvalidOrder,
+                    '20056' : InvalidOrder,
                 },
                 'broad': {
                 },
